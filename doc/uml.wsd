@@ -1,0 +1,29 @@
+@startuml
+class Shop {
+  - ID id
+  - string name
+  - Address address
+  - User owner
+}
+class Address {
+  - Prefecture prefecture
+  - City city
+}
+class Prefecture {
+  - ID id
+  - string name
+}
+class City {
+  - ID id
+  - string name
+}
+class User {
+  - ID id
+  - string name
+}
+
+Shop o-- Address
+Shop o-- User
+Address o-- Prefecture
+Address o-- City
+@enduml
