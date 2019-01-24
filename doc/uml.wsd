@@ -2,12 +2,9 @@
 class Shop {
   - ID id
   - string name
-  - Address address
-  - User owner
-}
-class Address {
   - Prefecture prefecture
   - City city
+  - User owner
 }
 class Prefecture {
   - ID id
@@ -22,8 +19,7 @@ class User {
   - string name
 }
 
-Shop o-- Address
+Shop o-- Prefecture
+Shop o-- City
 Shop o-- User
-Address o-- Prefecture
-Address o-- City
 @enduml
