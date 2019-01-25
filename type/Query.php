@@ -3,6 +3,7 @@
 namespace Type;
 
 use DataSource\PostDataSource;
+use DataSource\PrefectureDataSource;
 use DataSource\ShopDataSource;
 use GraphQL\Type\Definition\ObjectType;
 use GraphQL\Type\Definition\ResolveInfo;
@@ -26,6 +27,9 @@ class Query extends ObjectType
                         ],
                     ]
                 ],
+				'prefectures' => [
+					'type' => Type::listOf(Prefecture::getInstance()),
+				]
             ],
             'resolveField' => function($value, $args, $context, ResolveInfo $info) {
                 switch($info->fieldName) {
@@ -33,6 +37,8 @@ class Query extends ObjectType
                         return ShopDataSource::getList();
                     case 'shop':
                         return ShopDataSource::getById($args['id']);
+					case 'prefectures':
+						return PrefectureDataSource::getList();
                 }
                 throw new \RuntimeException('query not found');
             }
