@@ -29,6 +29,9 @@ class Shop extends ObjectType
                 'city' => [
                     'type' => City::getInstance()
                 ],
+				'owner' => [
+					'type' => User::getInstance()
+				],
             ],
             'resolveField' => function ($value, $args, $context, ResolveInfo $info) {
                 $method = 'resolve' . ucfirst($info->fieldName);
@@ -58,5 +61,10 @@ class Shop extends ObjectType
     {
         return CityDataSource::getById($value->cityId);
     }
+
+	public function resolveOwner($value)
+	{
+		return UserDataSource::getById($value->cityId);
+	}
 
 }

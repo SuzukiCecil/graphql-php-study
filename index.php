@@ -9,6 +9,7 @@ try {
     \DataSource\ShopDataSource::init();
     \DataSource\PrefectureDataSource::init();
     \DataSource\CityDataSource::init();
+	\DataSource\UserDataSource::init();
 
     $queryType = \Type\Query::getInstance();
 

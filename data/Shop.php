@@ -14,13 +14,14 @@ class Shop
     // graphql-phpに上書きされる
     public $prefecture;
     public $city;
-//    public $owner;
+    public $owner;
 
-    public function __construct(string $id, string $name, string $prefectureId, string $cityId)
+    public function __construct(string $id, string $name, string $prefectureId, string $cityId, string $userId)
     {
         $this->id = $id;
         $this->name = $name;
         $this->prefectureId = $prefectureId;
         $this->cityId = $cityId;
+		$this->owner = $userId;
     }
 }
